@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parecer · TJPA · PE 90028/2026</title>
+<style>
+  :root{
+    --bg:#faf9f7; --surface:#ffffff; --line:#e3e0da; --line-soft:#efece7;
+    --ink:#1a1917; --ink-2:#55504a; --ink-3:#8a837a;
+    --accent:#1a3a5c;
+    --ok:#1f7a4d; --ok-bg:#e8f4ee;
+    --warn:#a8740d; --warn-bg:#fbf2df;
+    --info:#154360; --info-bg:#e6eef4;
+    --no:#b03a2e; --no-bg:#fbeae8;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#131211; --surface:#1b1a18; --line:#302e2b; --line-soft:#252320;
+      --ink:#f2efe9; --ink-2:#b3aca2; --ink-3:#7d766d; --accent:#8fb4d4;
+      --ok:#6dba8d; --ok-bg:#16281f; --warn:#e0aa3e; --warn-bg:#2b2211;
+      --info:#7fa9c9; --info-bg:#14222c; --no:#e2705f; --no-bg:#2c1714;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#131211; --surface:#1b1a18; --line:#302e2b; --line-soft:#252320;
+    --ink:#f2efe9; --ink-2:#b3aca2; --ink-3:#7d766d; --accent:#8fb4d4;
+    --ok:#6dba8d; --ok-bg:#16281f; --warn:#e0aa3e; --warn-bg:#2b2211;
+    --info:#7fa9c9; --info-bg:#14222c; --no:#e2705f; --no-bg:#2c1714;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+       font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:940px;margin:0 auto;padding:56px 24px 96px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+           text-transform:uppercase;color:var(--ink-3);margin:0 0 12px}
+  h1{font-family:var(--serif);font-size:clamp(28px,4.5vw,42px);line-height:1.15;
+     font-weight:600;margin:0 0 8px;letter-spacing:-.01em}
+  .sub{color:var(--ink-2);margin:0 0 20px;font-size:17px}
+  .banner{border:1px solid var(--warn);background:var(--warn-bg);color:var(--ink);
+          border-radius:8px;padding:14px 18px;margin:0 0 28px;font-size:14.5px}
+  .banner strong{color:var(--warn)}
+  .verdict{border:1px solid var(--line);border-left:4px solid var(--vc,var(--accent));
+           background:var(--vbg,var(--surface));border-radius:10px;
+           padding:24px 28px;margin:0 0 44px}
+  .verdict.ok{--vc:var(--ok);--vbg:var(--ok-bg)}
+  .verdict.warn{--vc:var(--warn);--vbg:var(--warn-bg)}
+  .verdict.info{--vc:var(--info);--vbg:var(--info-bg)}
+  .verdict.no{--vc:var(--no);--vbg:var(--no-bg)}
+  .verdict h2{margin:0 0 6px;font-size:22px;font-weight:650;color:var(--vc);
+              letter-spacing:-.01em;font-family:var(--sans);
+              display:flex;align-items:center;gap:10px}
+  .verdict h2 .ico{font-size:19px;line-height:1}
+  .verdict p{margin:0;color:var(--ink-2)}
+  section{margin:0 0 48px}
+  h2.sec{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.1em;
+         text-transform:uppercase;color:var(--ink-3);margin:0 0 18px;
+         padding-bottom:10px;border-bottom:1px solid var(--line)}
+  h2.sec .n{font-family:var(--mono);color:var(--accent);margin-right:10px}
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+         gap:1px;background:var(--surface);border:1px solid var(--line);border-radius:10px;
+         overflow:hidden}
+  .fact{background:var(--surface);padding:16px 18px;outline:1px solid var(--line)}
+  .fact dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+           text-transform:uppercase;color:var(--ink-3);margin:0 0 6px}
+  .fact dd{margin:0;font-size:15px;font-weight:520}
+  .scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;
+          background:var(--surface)}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:680px}
+  th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+     text-transform:uppercase;color:var(--ink-3);font-weight:500;
+     padding:13px 16px;border-bottom:1px solid var(--line);white-space:nowrap}
+  td{padding:13px 16px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+  tr:last-child td{border-bottom:0}
+  .src{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);
+       display:block;margin-top:3px}
+  .grp td{background:var(--line-soft);font-family:var(--mono);font-size:10.5px;
+          letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);
+          padding:9px 16px;font-weight:600}
+  .tag{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:600;
+       letter-spacing:.06em;padding:3px 9px;border-radius:5px;white-space:nowrap}
+  .tag.ok{color:var(--ok);background:var(--ok-bg)}
+  .tag.warn{color:var(--warn);background:var(--warn-bg)}
+  .tag.info{color:var(--info);background:var(--info-bg)}
+  .tag.no{color:var(--no);background:var(--no-bg)}
+  .missing{color:var(--ink-3);font-style:italic}
+  .prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;
+          margin:0 0 22px}
+  .price{border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:20px}
+  .price .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+              text-transform:uppercase;color:var(--ink-3);margin:0 0 8px}
+  .price .val{font-family:var(--serif);font-size:26px;font-weight:600;
+              letter-spacing:-.02em;line-height:1.1}
+  .price .note{font-size:13px;color:var(--ink-2);margin:8px 0 0}
+  .price.target{border-color:var(--accent)}
+  .price.target .val{color:var(--accent)}
+  .price.blocked .val{color:var(--ink-3);font-size:20px;font-style:italic}
+  .note-box{border:1px solid var(--line);border-left:3px solid var(--warn);
+            background:var(--surface);border-radius:8px;padding:16px 20px;
+            font-size:14.5px;color:var(--ink-2);margin:22px 0 0}
+  .note-box.no{border-left-color:var(--no)}
+  ul.checks{list-style:none;padding:0;margin:0}
+  ul.checks li{padding:12px 0 12px 26px;border-bottom:1px solid var(--line-soft);position:relative}
+  ul.checks li:last-child{border-bottom:0}
+  ul.checks li::before{content:"";position:absolute;left:6px;top:19px;width:6px;height:6px;
+                       border-radius:50%;background:var(--ink-3)}
+  footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--line);
+         font-family:var(--mono);font-size:11.5px;color:var(--ink-3);
+         display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  @media print{body{background:#fff}.wrap{padding:0;max-width:none}
+    .scroll,.verdict,.price,.facts{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Parecer de participação · 07/09/2026 (atualização automática)</p>
+  <h1>Tribunal de Justiça do Estado do Pará</h1>
+  <p class="sub">Pregão Eletrônico 90028/2026 · sessão pública em 03/08/2026, 09h00</p>
+
+  <div class="banner">
+    <strong>Sessão encerrada há 35 dias.</strong> A abertura foi em 03/08/2026 e hoje é
+    07/09/2026. Este parecer é retrospectivo: serve para entender o que faltava, não
+    para decidir entrada. Reanálise automática feita sobre o edital republicado
+    (<code>Edital_anexos_28_rep.pdf</code>) e sobre os pedidos de esclarecimento
+    respondidos pelo TJPA (<code>ESCLARECIMENTOS.docx</code>), ambos adicionados à
+    pasta do certame em 05/09/2026. Nenhum dos dois muda o veredito: os valores do
+    certame, o Fator K teto e o requisito de qualificação econômico-financeira que
+    bloqueiam a Norte permanecem idênticos aos da versão anterior deste parecer,
+    de 26/08/2026.
+    <br><br>
+    <strong>Material didático.</strong> A Norte Software é empresa fictícia e seus
+    documentos declaram não ter valor legal. O edital do TJPA é real, obtido no
+    Compras.gov.br.
+  </div>
+
+  <div class="verdict no">
+    <h2><span class="ico">❌</span>NÃO PARTICIPAR</h2>
+    <p>Bloqueio estrutural na qualificação econômico-financeira. O edital exige
+    patrimônio líquido ou capital social de no mínimo 10% do estimado, o que dá
+    R$ 5.434.439,24 só para o Lote 1. A Norte tem R$ 80.000,00 de capital social e
+    nenhum balanço patrimonial na documentação. A distância é de 68 vezes, e não se
+    fecha com argumento: só com aporte de capital e balanço registrado. A
+    reanálise encontrou um segundo bloqueio independente: a execução contratual
+    exige certificações institucionais (ISO/IEC 27001, ISO 37301 ou equivalente,
+    CMMI nível 3 ou MPS-BR SW nível C) que a Norte também não possui.</p>
+  </div>
+
+  <section>
+    <h2 class="sec"><span class="n">01</span>Identificação do certame</h2>
+    <dl class="facts">
+      <div class="fact"><dt>Objeto</dt><dd>Desenvolvimento, sustentação e evolução de sistemas do TJPA, por alocação de perfis sem dedicação exclusiva<span class="src">capa do Edital</span></dd></div>
+      <div class="fact"><dt>Processo / UASG</dt><dd>SEI 0006513-28.2026.8.14.0900 · UASG 925942</dd></div>
+      <div class="fact"><dt>Valor global estimado</dt><dd>R$ 61.016.146,51<span class="src">capa do Edital</span></dd></div>
+      <div class="fact"><dt>Lote 1 · Desenvolvimento</dt><dd>R$ 54.344.392,41 · 62 profissionais em 16 perfis<span class="src">tabela do Lote 1, TR</span></dd></div>
+      <div class="fact"><dt>Lote 2 · Teste e Qualidade</dt><dd>R$ 6.671.754,10<span class="src">Relação de Itens</span></dd></div>
+      <div class="fact"><dt>Vigência</dt><dd>24 meses da assinatura<span class="src">item 5.1 do TR</span></dd></div>
+      <div class="fact"><dt>Modelo de remuneração</dt><dd>Fator K único sobre salários-base fixos, teto 3,31<span class="src">item 3.3.9.1 do TR</span></dd></div>
+      <div class="fact"><dt>Critério</dt><dd>Menor preço por lote, modo aberto<span class="src">capa do Edital</span></dd></div>
+      <div class="fact"><dt>Registro de preços</dt><dd>Não<span class="src">capa do Edital</span></dd></div>
+      <div class="fact"><dt>Tratamento ME/EPP</dt><dd>Não. A Norte é EPP e não ganha preferência aqui<span class="src">Relação de Itens, ambos os lotes</span></dd></div>
+      <div class="fact"><dt>Lotes 1 e 2 à mesma empresa</dt><dd>Vedado, inclusive para o mesmo grupo econômico<span class="src">item 3.2.3.1 do TR</span></dd></div>
+      <div class="fact"><dt>Garantia contratual</dt><dd>5% do valor anual = R$ 1.358.609,81 no Lote 1<span class="src">item 6.1 do TR</span></dd></div>
+      <div class="fact"><dt>Certificações da futura contratada</dt><dd>ISO/IEC 27001, ISO 37301 (ou equivalente) e CMMI nível 3 ou MPS-BR SW nível C, exigíveis após a assinatura, com prazo<span class="src">item 4.3.9 do TR</span></dd></div>
+    </dl>
+  </section>
+
+  <section>
+    <h2 class="sec"><span class="n">02</span>Cruzamento requisito a requisito</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr>
+          <th>Requisito</th><th>Exigido</th><th>Comprovado pela Norte</th>
+          <th>Documento</th><th>Situação</th>
+        </tr></thead>
+        <tbody>
+          <tr class="grp"><td colspan="5">Qualificação econômico-financeira · cumulativa por força do item 3.3.5 do TR</td></tr>
+          <tr>
+            <td>PL ou capital social mínimo<span class="src">item 3.3.4.2 do TR</span></td>
+            <td>10% do estimado<br>R$ 5.434.439,24 (Lote 1)<br>R$ 6.101.614,65 (global)</td>
+            <td>R$ 80.000,00 de capital social<span class="src">falta R$ 5.354.439,24; seria preciso multiplicar o capital por 68</span></td>
+            <td>08-simplificada</td>
+            <td><span class="tag no">NÃO ATENDE</span></td>
+          </tr>
+          <tr>
+            <td>Balanço patrimonial registrado na Junta<span class="src">item 3.3.3.2.3 do TR</span></td>
+            <td>obrigatório, assinado por contador e representante legal</td>
+            <td class="missing">ausente na documentação</td>
+            <td>—</td>
+            <td><span class="tag no">NÃO ATENDE</span></td>
+          </tr>
+          <tr>
+            <td>LG, SG e LC maiores que 1,0<span class="src">item 3.3.4.1 do TR</span></td>
+            <td>os três, cumulativos</td>
+            <td class="missing">não calculáveis sem balanço</td>
+            <td>—</td>
+            <td><span class="tag warn">NÃO LOCALIZADO</span></td>
+          </tr>
+          <tr>
+            <td>CCL ou capital de giro<span class="src">item 3.3.4.3 do TR</span></td>
+            <td>16,66% do anualizado do lote<br>R$ 4.526.887,89 (Lote 1)</td>
+            <td class="missing">não localizado no texto extraído</td>
+            <td>—</td>
+            <td><span class="tag warn">NÃO LOCALIZADO</span></td>
+          </tr>
+          <tr>
+            <td>PL versus contratos vigentes<span class="src">item 3.3.4.4 do TR</span></td>
+            <td>PL não inferior a 1/12 dos contratos vigentes, com declaração formal</td>
+            <td class="missing">sem PL apurado e sem a declaração</td>
+            <td>—</td>
+            <td><span class="tag warn">NÃO LOCALIZADO</span></td>
+          </tr>
+
+          <tr class="grp"><td colspan="5">Certificações institucionais da futura contratada · marco de execução, não de habilitação</td></tr>
+          <tr>
+            <td>ISO/IEC 27001, em nome da empresa executora<span class="src">item 4.3.9.1 do TR</span></td>
+            <td>válida e vigente, sem certificação equivalente admitida</td>
+            <td class="missing">não possui</td>
+            <td>—</td>
+            <td><span class="tag no">NÃO ATENDE</span></td>
+          </tr>
+          <tr>
+            <td>ISO 37301 ou certificação de compliance equivalente<span class="src">item 4.3.9.2 do TR</span></td>
+            <td>equivalência avaliada pelos critérios do item 4.3.9.2.2, sem lista prévia<span class="src">esclarecido em resposta de 28/07/2026 no ESCLARECIMENTOS.docx: ISO/IEC 20000-1 isolada não basta</span></td>
+            <td class="missing">não possui</td>
+            <td>—</td>
+            <td><span class="tag no">NÃO ATENDE</span></td>
+          </tr>
+          <tr>
+            <td>CMMI nível 3 (ou superior) ou MPS-BR SW nível C (ou superior)<span class="src">item 4.3.9.3 do TR</span></td>
+            <td>uma das duas, alternativa restrita</td>
+            <td class="missing">não possui</td>
+            <td>—</td>
+            <td><span class="tag no">NÃO ATENDE</span></td>
+          </tr>
+
+          <tr class="grp"><td colspan="5">Qualificação técnica · Lote 1</td></tr>
+          <tr>
+            <td>Desenvolvimento, manutenção ou sustentação, com concepção, análise, projeto, implementação, testes, implantação e documentação<span class="src">item 3.3.7.1.1 do TR</span></td>
+            <td>comprovar execução</td>
+            <td>A1 cobre o ciclo inteiro no protocolo digital; A2 cobre desenvolvimento, sustentação e evolução</td>
+            <td>A1, A2</td>
+            <td><span class="tag ok">ATENDE</span></td>
+          </tr>
+          <tr>
+            <td>Métodos ágeis (Scrum, Kanban, XP, TDD, FDD)<span class="src">item 3.3.7.1.2 do TR</span></td>
+            <td>práticas e metodologias</td>
+            <td>A1 Scrum com sprints, burndown, review, retrospectiva; A2 Scrum, Kanban e TDD</td>
+            <td>A1, A2</td>
+            <td><span class="tag ok">ATENDE</span></td>
+          </tr>
+          <tr>
+            <td>Integração entre sistemas, versionamento, controle de mudanças e gestão de backlog<span class="src">item 3.3.7.1.3 do TR</span></td>
+            <td>atuação comprovada</td>
+            <td>A2 declara Git, backlog do produto e release plan; A1 declara API REST e backlog</td>
+            <td>A1, A2</td>
+            <td><span class="tag ok">ATENDE</span></td>
+          </tr>
+          <tr>
+            <td>Processos de engenharia baseados em modelo de maturidade (CMMI, MPS.BR ou equivalente), com métricas de qualidade<span class="src">item 3.3.7.1.4 do TR</span></td>
+            <td>evidenciar nos atestados</td>
+            <td class="missing">não consta em nenhum atestado</td>
+            <td>—</td>
+            <td><span class="tag no">NÃO ATENDE</span></td>
+          </tr>
+          <tr>
+            <td>Segurança da informação e desenvolvimento seguro (Security by Design, DevSecOps, família ISO/IEC 27000)<span class="src">item 3.3.7.1.5 do TR</span></td>
+            <td>evidenciar nos atestados</td>
+            <td class="missing">não consta em nenhum atestado</td>
+            <td>—</td>
+            <td><span class="tag no">NÃO ATENDE</span></td>
+          </tr>
+          <tr>
+            <td>Volume mínimo em 12 meses, métricas alternativas<span class="src">item 3.3.7.2.1 do TR</span></td>
+            <td>433 PF <em>ou</em> 29 perfis <em>ou</em> 5.192 horas</td>
+            <td><strong>1.400 PF em 12 meses</strong> (3,23× o mínimo), nativos, sem conversão.<span class="src">alternativa: 7.200 h por 12 meses no A2, 1,39× o mínimo</span></td>
+            <td>A1 (e A2)</td>
+            <td><span class="tag ok">ATENDE</span></td>
+          </tr>
+          <tr>
+            <td>Vedação a atestado medido em UST ou que exija conversão<span class="src">item 3.3.7.2.4 do TR</span></td>
+            <td>só PF, perfis ou horas nativos</td>
+            <td>A1 é PF nativo, imune. A2 declara 14.400 horas como número principal e cita UST apenas como equivalência acessória</td>
+            <td>A1, A2</td>
+            <td><span class="tag warn">ATENDE COM RESSALVA</span></td>
+          </tr>
+          <tr>
+            <td>Tecnologia do Anexo IV<span class="src">item 3.3.7.2.1 do TR</span></td>
+            <td>ao menos uma</td>
+            <td>Java e PostgreSQL, presentes nos dois atestados válidos e no Anexo IV</td>
+            <td>A1, A2</td>
+            <td><span class="tag ok">ATENDE</span></td>
+          </tr>
+          <tr>
+            <td>Emitente do atestado<span class="src">item 3.3.7 do TR</span></td>
+            <td>pessoa jurídica de direito público ou privado</td>
+            <td>ILS e Cia. Ribeira, ambas de direito privado</td>
+            <td>A1, A2</td>
+            <td><span class="tag ok">ATENDE</span></td>
+          </tr>
+          <tr>
+            <td>Vedação a helpdesk, service desk e suporte de infraestrutura<span class="src">item 3.3.7.3.1 do TR</span></td>
+            <td>não são compatíveis com o objeto</td>
+            <td>A3 é service desk puro, 22.400 chamados. Descartado, não conta nada aqui</td>
+            <td>A3</td>
+            <td><span class="tag info">NÃO APLICÁVEL</span></td>
+          </tr>
+          <tr>
+            <td>Anos mínimos de experiência da empresa</td>
+            <td class="missing">não localizado no texto extraído</td>
+            <td>empresa aberta em 12/03/2018</td>
+            <td>01-cnpj</td>
+            <td><span class="tag warn">NÃO LOCALIZADO</span></td>
+          </tr>
+
+          <tr class="grp"><td colspan="5">Qualificação técnica · Lote 2</td></tr>
+          <tr>
+            <td>Volume mínimo de teste e qualidade em 12 meses<span class="src">item 3.3.7.2.2 do TR</span></td>
+            <td>5 perfis de QA <em>ou</em> 792 horas de teste</td>
+            <td class="missing">testes aparecem como atividade no A1 e no A2, mas sem horas nem perfis de QA quantificados em separado</td>
+            <td>—</td>
+            <td><span class="tag no">NÃO ATENDE</span></td>
+          </tr>
+
+          <tr class="grp"><td colspan="5">Regularidade fiscal e trabalhista</td></tr>
+          <tr>
+            <td>Certidões federal, FGTS, trabalhista, estadual e municipal<span class="src">item 8.20 do Edital</span></td>
+            <td>todas válidas na sessão</td>
+            <td>as cinco presentes e válidas em 03/08/2026<span class="src">CRF do FGTS venceu em 30/08/2026, hoje 07/09/2026 já não estaria mais válida</span></td>
+            <td>02 a 06</td>
+            <td><span class="tag warn">VÁLIDA NA SESSÃO, VENCIDA HOJE</span></td>
+          </tr>
+          <tr>
+            <td>Certidão de falência e recuperação<span class="src">item 8.19 do Edital, habilitação jurídica</span></td>
+            <td>nada consta</td>
+            <td>nada consta no TJSE, válida até 28/01/2027</td>
+            <td>07-civil</td>
+            <td><span class="tag ok">ATENDE</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec"><span class="n">03</span>Lacunas e pendências</h2>
+    <ul class="checks">
+      <li><strong>Capital social ou patrimônio líquido de R$ 5.434.439,24.</strong> É o bloqueio principal. Não se resolve com peça de defesa nem com diligência: exige aporte e registro. Enquanto o capital for R$ 80.000,00, qualquer certame com estimado acima de R$ 800 mil trava no mesmo item.</li>
+      <li><strong>Balanço patrimonial registrado na Junta Comercial.</strong> Não está na documentação. Sem ele, quatro requisitos econômicos ficam sem resposta de uma vez. É o documento de maior retorno para levantar, mesmo fora deste edital.</li>
+      <li><strong>Certificações institucionais de execução (item 4.3.9 do TR).</strong> Bloqueio independente, achado nesta reanálise: ISO/IEC 27001 e ISO 37301 (ou equivalente demonstrada pelos critérios do item 4.3.9.2.2) são marco obrigatório antes do fim do Período de Ambientação, e CMMI nível 3 ou MPS-BR SW nível C em até 60 dias adicionais, pelo item 4.3.10.2. A Norte não possui nenhuma das três. Mesmo que o capital social fosse resolvido, este item continuaria travando a execução do contrato.</li>
+      <li><strong>Evidência de modelo de maturidade nos atestados.</strong> Nenhum atestado cita CMMI, MPS.BR ou equivalente. Se a Norte de fato usa processo estruturado com métricas, isso precisa estar escrito no atestado, não só acontecer na prática. Peça a inclusão nos próximos.</li>
+      <li><strong>Evidência de desenvolvimento seguro.</strong> Mesmo raciocínio: DevSecOps, Security by Design ou ISO 27000 precisam constar no texto do atestado.</li>
+      <li><strong>Testes quantificados em separado.</strong> A1 e A2 mencionam testes, mas sem horas nem perfis de QA. É o que fecharia o Lote 2 em outro certame.</li>
+      <li><strong>Interpretação do item 3.3.7.1.</strong> O texto diz que os atestados devem contemplar os cinco pontos "de forma cumulativa ou não". A redação é ambígua e decide se os itens 3.3.7.1.4 e 3.3.7.1.5 são obrigatórios ou dispensáveis. Era pergunta de esclarecimento, com prazo até 29/07/2026 pelo item da capa. Passou, e o ESCLARECIMENTOS.docx não trata deste ponto especificamente.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="sec"><span class="n">04</span>Sugestão de preço</h2>
+    <div class="prices">
+      <div class="price blocked">
+        <p class="lbl">Break-even da Norte</p>
+        <p class="val">não calculado</p>
+        <p class="note">Faltam os parâmetros de custo. Ver o bloqueio abaixo.</p>
+      </div>
+      <div class="price">
+        <p class="lbl">Piso do edital · K 1,655</p>
+        <p class="val">R$ 27.172.196,21</p>
+        <p class="note">50% do orçado. Abaixo disso há indício de inexequibilidade.</p>
+      </div>
+      <div class="price target">
+        <p class="lbl">Teto do edital · K 3,31</p>
+        <p class="val">R$ 54.344.392,41</p>
+        <p class="note">Fator K máximo aceitável. Acima disso, desclassificação.</p>
+      </div>
+    </div>
+
+    <div class="note-box no">
+      <strong>Precificação bloqueada.</strong> A faixa acima é do edital, não é
+      recomendação para a Norte. Não há como calcular o lance dela porque a
+      documentação não traz nenhum parâmetro de custo: regime de contratação da
+      equipe (CLT ou PJ, que muda o Fator K de forma decisiva), carga tributária,
+      overhead e margem alvo. Sem isso, qualquer número seria invenção. Preencha a
+      seção 5 do <code>empresa/00-CONTEXTO.md</code> e o cálculo passa a sair.
+    </div>
+
+    <div class="scroll" style="margin-top:22px">
+      <table>
+        <thead><tr><th>Linha</th><th>Fórmula</th><th>Valor</th></tr></thead>
+        <tbody>
+          <tr><td>Massa salarial mensal do Lote 1</td><td>soma de quantidade × salário-base dos 16 perfis</td><td>R$ 684.093,56</td></tr>
+          <tr><td>Valor mensal no teto</td><td>× Fator K 3,31</td><td>R$ 2.264.349,68</td></tr>
+          <tr><td>Valor anual</td><td>× 12</td><td>R$ 27.172.196,20</td></tr>
+          <tr><td><strong>Valor total do Lote 1</strong></td><td>× 24 meses</td><td><strong>R$ 54.344.392,41</strong></td></tr>
+          <tr><td>Piso de inexequibilidade</td><td>× 50%</td><td>R$ 27.172.196,21</td></tr>
+          <tr><td>Garantia contratual</td><td>5% do valor anual</td><td>R$ 1.358.609,81</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note-box">
+      <strong>Como o preço funciona aqui.</strong> Os salários-base são fixos e
+      inegociáveis. A disputa inteira é um número só, o Fator K, idêntico para todos
+      os perfis. Cotar K diferente por perfil desclassifica, pelo item 3.3.9.1 do TR.
+      O ESCLARECIMENTOS.docx (respostas de 28/07/2026) confirma que o Fator K não é
+      limitado a duas casas decimais e que o arredondamento ocorre nos valores
+      monetários da proposta, não no próprio Fator K — detalhe operacional para quem
+      chegar a formular lance, sem efeito sobre a conta abaixo. A conta reproduz a
+      planilha do próprio edital e fecha no centavo, o que confirma que a leitura dos
+      16 perfis está correta.
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec"><span class="n">05</span>Riscos e observações</h2>
+    <ul class="checks">
+      <li><strong>Escala operacional.</strong> O Lote 1 pede 62 profissionais alocados em 16 perfis. A Norte tem 28 pessoas. Mesmo com a habilitação resolvida, assumir o contrato significaria mais que dobrar a empresa em um mês de mobilização.</li>
+      <li><strong>Garantia de R$ 1.358.609,81.</strong> Seguro-garantia ou caução equivalente a 17 vezes o capital social da empresa, exigido antes de assinar o contrato, pelo item 6.1 do TR. Seguradora avalia lastro, e o lastro documentado é o mesmo que reprova no item 3.3.4.2.</li>
+      <li><strong>Certificações de execução são um segundo bloqueio, não redundante com a habilitação técnica.</strong> O ESCLARECIMENTOS.docx (resposta de 04/08/2026 a pedido da ILHA SERVICE TECNOLOGIA) confirma que as certificações do item 4.3.9 valem para a contratada de qualquer um dos lotes, sem lista de equivalências pré-aprovada, e que ISO/IEC 20000-1 isolada não substitui a ISO 37301. Como são exigidas após a assinatura, não bloqueiam a fase de lances, mas bloqueiam a execução: ganhar o certame sem tê-las é assinar um compromisso que a empresa não tem como cumprir no prazo.</li>
+      <li><strong>Sem vantagem de EPP.</strong> A Relação de Itens marca "Tratamento Diferenciado: Não" nos dois lotes. O porte da Norte não gera empate ficto nem cota reservada aqui.</li>
+      <li><strong>Homonímia no A1.</strong> A assinante do atestado do ILS, Helena Vasconcelos, tem o mesmo nome da sócia administradora da Norte na certidão da Junta. Pode ser coincidência do material didático, mas em certame real é exatamente o tipo de detalhe que vira diligência sobre independência do emitente. Confira antes de usar o A1 como atestado principal.</li>
+      <li><strong>O A3 é uma armadilha, não um ativo.</strong> Anexar o atestado de service desk num edital de fábrica não soma nada e chama atenção para o item 3.3.7.3.1, que veda justamente aquilo. Guarde para certame de suporte.</li>
+      <li><strong>Onde a Norte é forte.</strong> Vale registrar: no requisito de volume ela passa com folga, 1.400 PF contra 433 exigidos, e em métrica nativa, imune à vedação de conversão do item 3.3.7.2.4 que derruba concorrente que só tem atestado em UST. O problema deste edital nunca foi técnico. Foi de porte — e, agora confirmado, também de certificação institucional.</li>
+    </ul>
+  </section>
+
+
+  <section>
+    <h2 class="sec"><span class="n">06</span>Preço médio de mercado para um contrato como este</h2>
+
+    <p style="margin:0 0 20px;color:var(--ink-2)">Aqui não vale opinião. Toda a faixa
+    abaixo sai do próprio Anexo IV do edital, que documenta a pesquisa de preços do
+    TJPA e cita a referência do TCU para contratos de TI no Judiciário. O Fator K é o
+    multiplicador único sobre os salários-base fixos: ele é, sozinho, o preço.</p>
+
+    <div class="prices">
+      <div class="price">
+        <p class="lbl">Faixa TCU · Judiciário</p>
+        <p class="val">K 1,94 a 2,85</p>
+        <p class="note">Contratos de alta complexidade no Judiciário.<span class="src">Acórdão 371/2022-TCU-Plenário, citado no Anexo IV, item 4</span></p>
+      </div>
+      <div class="price target">
+        <p class="lbl">Média de mercado</p>
+        <p class="val">K 2,395</p>
+        <p class="note">Ponto médio da faixa TCU. É a resposta curta à pergunta.</p>
+      </div>
+      <div class="price">
+        <p class="lbl">Contrato de 24 meses nessa média</p>
+        <p class="val">R$ 39,3 mi</p>
+        <p class="note">72,4% do estimado, ou R$ 1.638.404,08 por mês.</p>
+      </div>
+    </div>
+
+    <div class="scroll">
+      <table>
+        <thead><tr>
+          <th>Cenário</th><th>Fator K</th><th>Mensal</th><th>Total em 24 meses</th>
+          <th>% do estimado</th><th>Fonte</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td>Piso de inexequibilidade</td><td>1,655</td>
+            <td>R$ 1.132.174,84</td><td>R$ 27.172.196,20</td><td>50,0%</td>
+            <td class="src" style="display:table-cell">item 7.9 do Edital</td>
+          </tr>
+          <tr>
+            <td>Piso da faixa de mercado</td><td>1,940</td>
+            <td>R$ 1.327.141,51</td><td>R$ 31.851.396,15</td><td>58,6%</td>
+            <td class="src" style="display:table-cell">Acórdão 371/2022-TCU</td>
+          </tr>
+          <tr>
+            <td>Necessidade técnica declarada</td><td>2,100</td>
+            <td>R$ 1.436.596,48</td><td>R$ 34.478.315,42</td><td>63,4%</td>
+            <td class="src" style="display:table-cell">Anexo IV, item 4.1</td>
+          </tr>
+          <tr style="background:var(--info-bg)">
+            <td><strong>Média de mercado</strong></td><td><strong>2,395</strong></td>
+            <td><strong>R$ 1.638.404,08</strong></td><td><strong>R$ 39.321.697,83</strong></td>
+            <td><strong>72,4%</strong></td>
+            <td class="src" style="display:table-cell">média de 1,94 e 2,85</td>
+          </tr>
+          <tr>
+            <td>Teto da faixa de mercado</td><td>2,850</td>
+            <td>R$ 1.949.666,65</td><td>R$ 46.791.999,50</td><td>86,1%</td>
+            <td class="src" style="display:table-cell">Acórdão 371/2022-TCU</td>
+          </tr>
+          <tr>
+            <td>Teto do edital</td><td>3,310</td>
+            <td>R$ 2.264.349,68</td><td>R$ 54.344.392,41</td><td>100,0%</td>
+            <td class="src" style="display:table-cell">Anexo IV, item 4</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note-box">
+      <strong>O que compõe esse multiplicador.</strong> O próprio Anexo IV, item 4.1,
+      abre a conta: encargos sociais e trabalhistas de 75% a 85% sobre o salário-base,
+      benefícios de 15% a 20%, custos indiretos e tributos em torno de 15%, margem e
+      contingência em torno de 10%. Somados, o edital conclui que a necessidade
+      técnica fica acima de 2,10. Quem oferta abaixo disso está comprimindo encargo,
+      benefício ou margem, e precisa saber qual dos três. O ESCLARECIMENTOS.docx
+      reforça que todo custo previsível e conhecido antes da proposta — inclusive a
+      reoneração gradual da folha da Lei 14.973/2024 — entra no Fator K único, sem
+      reequilíbrio automático depois.
+    </div>
+
+    <div class="note-box">
+      <strong>O teto do edital está acima da referência do TCU.</strong> A faixa do
+      Acórdão 371/2022 vai até 2,85, e o TJPA fixou 3,31, cerca de 16% acima do topo
+      dessa faixa. O edital justifica a diferença pela conta vinculada da Resolução
+      CNJ 651/2025, que imobiliza provisões trabalhistas em conta bloqueada e pressiona
+      o caixa, e pelos encargos da convenção coletiva de Belém. A leitura prática é que
+      há folga real entre o teto e o que o mercado costuma praticar: uma disputa que
+      termine perto de K 2,4 seria normal, não seria lance predatório.
+    </div>
+
+    <div class="note-box no">
+      <strong>Duas ressalvas antes de usar esse número.</strong> Primeira: a faixa do
+      TCU foi apurada para o regime CLT no Judiciário. Empresa que opera em outro
+      regime tem estrutura de encargo diferente e break-even diferente, então a média
+      de 2,395 é referência de mercado, não é o custo de ninguém em particular.
+      Segunda: isso continua não sendo recomendação de lance para a Norte, cujo modelo
+      de custo segue em branco na seção 5 do contexto. Média de mercado diz onde a
+      disputa costuma parar, não se você aguenta chegar lá.
+    </div>
+  </section>
+
+  <footer>
+    <span>Norte Software Ltda. · CNPJ 32.847.119/0001-64 · material didático sem valor legal</span>
+    <span>Gerado por edital-delta · 07/09/2026 · atualiza o parecer de 26/08/2026</span>
+  </footer>
+
+</div>
+</body>
+</html>
